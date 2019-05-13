@@ -1,20 +1,23 @@
 // container
 const container = document.querySelector('#container')
-container.setAttribute('style', 'display: flex; width: 16px; height: 16px; margin: auto;')
 
 // grids
-const div = document.createElement('div');
-div.setAttribute('style', 'width: 16px; height: 16px; margin: auto; color: blue;')
-container.appendChild(div)
-
-const div1 = document.createElement('div');
-div1.setAttribute('style', 'width: 16px; height: 16px; margin: auto; color: green;')
-container.appendChild(div1)
-
-const div2 = document.createElement('div');
-div2.setAttribute('style', 'width: 16px; height: 16px; margin: auto;')
-container.appendChild(div2)
-
-const div3 = document.createElement('div')
-div3.setAttribute('style', 'width: 16px; height: 16px; margin: auto;')
-container.appendChild(div3)
+function createGrid(x) {
+    let div = document.createElement('div');
+    div.setAttribute('id','container');
+    let inner = document.getElementById('inner');
+    inner.appendChild(div);
+for (let i = 0; i < x; i++) {
+    let row = document.createElement('div')
+    row.classList.add('row')
+for (let j = 0; j>x; j++) {
+    let cell = document.createElement('div')
+    cell.classList.add('cell')
+    cell.style.height = '(480/x)+"px"'
+    cell.style.width = '(480/x)+"px"'
+    row.appendChild(cell)
+}
+div.appendChild('row')
+}
+turnColor()
+}
